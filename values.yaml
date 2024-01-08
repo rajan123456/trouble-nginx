@@ -1,0 +1,28 @@
+deployment:
+  replicaCount: 1
+  strategy: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 50%
+  progressDeadlineSeconds: 10
+  image:
+    repository: docker.io/library/nginx
+    tag: latest
+  imagePullPolicy: Always
+  resources:
+    requests: {}
+    limits: {}
+  containerPort:
+    enabled: true
+    portNumbers:
+      - 80
+
+service:
+  enabled: true
+  headless: false
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    portName: port-1

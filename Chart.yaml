@@ -1,0 +1,6 @@
+apiVersion: v2
+name: trouble
+appVersion: "1.0.0"
+description: Generic Helm chart for trouble
+version: 4.0.0
+type: application
